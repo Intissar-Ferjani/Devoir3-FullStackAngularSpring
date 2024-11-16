@@ -1,0 +1,22 @@
+<div class="container mt-5">
+    <div class="row justify-content-md-center">
+        <div class="col-md-3">
+            <h1 style="margin-left:100px;">Login</h1>
+            <form style="margin-top:50px;">
+                <div class="alert alert-danger" style="margin-bottom: 40px;" *ngIf="err==1">
+                    <strong>{{message}}</strong>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="username" class="form-control" [(ngModel)]="user.username" placeholder="Nom Utilisateur">
+                </div><br>
+                <div class="form-group mt-2">
+                    <input type="password" name="password" [(ngModel)]="user.password" class="form-control" placeholder="Mot de passe">
+                </div><br>
+                <p style="margin-left: 15px;">Vous n'avez pas un compte? <a routerLink="/register">S'inscrire </a></p>
+                <div style="margin-left: 108px; margin-top: 50px;">
+                    <button type="button" (click)="onLoggedin()" class="btn btn-success p-2">Connexion</button>
+                </div>
+            </form>            
+        </div>
+    </div>
+</div>

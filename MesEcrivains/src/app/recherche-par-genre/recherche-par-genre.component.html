@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="d-flex justify-content-center">
+        <div class="col-sm-4 col-md-4 col-lg-4 mb-4 mt-4 form-floating">
+            <select class="form-select form-lg" id="idG" name="idG" [(ngModel)]="idGenre" (change)="onChange()">
+                <option *ngFor="let g of genres" [value]="g.idG">{{g.nomG}}</option>
+            </select>
+            <label for="idG">Les Genres</label>
+        </div>
+    </div> 
+    <div class="card shadow mb-4">       
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr><th style="font-size: 22px;" colspan="7">Liste de Ecrivains</th></tr>
+                    <tr> <th>Id</th><th>Nom</th> <th>Honoraires</th> <th>Date Début Carrière</th> <th colspan="3">Genre</th> </tr>
+                </thead>
+                <tbody *ngFor="let ecrivain of ecrivains">
+                    <tr >
+                        <td>{{ecrivain.idEcrivain}}</td>
+                        <td>{{ecrivain.nomEcrivain}}</td>
+                        <td>{{ecrivain.honoraires}}</td>
+                        <td>{{ecrivain.dateDebutCarriere | date:'dd/MM/yyyy'}}</td>
+                        <td>{{ecrivain.genre.nomG}}</td>
+                        <!-- <td><a class="btn btn-danger"  (click)="supprimerEcrivain(ecrivain)">Supprimer</a></td> -->
+                        <td><a class="btn btn-info" [routerLink]="['/updateEcrivain',ecrivain.idEcrivain]">Modifier</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

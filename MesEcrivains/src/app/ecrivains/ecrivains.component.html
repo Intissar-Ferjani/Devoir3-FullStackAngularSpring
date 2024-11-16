@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr><th style="font-size: 22px;" colspan="7">Liste de Ecrivains</th></tr>
+                    <tr> <th>Id</th><th>Nom</th> <th>Honoraires</th> <th>Date Début Carrière</th> <th>Genre</th> <th colspan="3">Première Image</th></tr>
+                </thead>
+                <tbody *ngFor="let ecrivain of ecrivains">
+                    <tr >
+                        <td>{{ecrivain.idEcrivain}}</td>
+                        <td>{{ecrivain.nomEcrivain}}</td>
+                        <td>{{ecrivain.honoraires}}</td>
+                        <td>{{ecrivain.dateDebutCarriere | date:'dd/MM/yyyy'}}</td>
+                        <td>{{ecrivain.genre.nomG}}</td>
+                        <td><img class="card-img-top img-responsive" src="{{ecrivain.imageStr}}" style="height: 80px; width: 90px" alt="Images"></td>
+                        <td><a *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="supprimerEcrivain(ecrivain)" >Supprimer</a></td>
+                        <td><a *ngIf="authService.isAdmin()" class="btn btn-info" [routerLink]="['/updateEcrivain',ecrivain.idEcrivain]">Modifier</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

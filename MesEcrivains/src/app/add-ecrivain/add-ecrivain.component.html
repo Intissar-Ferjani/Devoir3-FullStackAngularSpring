@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="mt-4">
+        <h2>Ajouter un Ecrivain :</h2>
+    </div>
+    <br>
+    <form >
+        <div class="col-sm-2 col-md-2 col-lg-2" hidden>
+            <label >ID Ecrivain</label>
+            <input type="text" [(ngModel)]="newEcrivain.idEcrivain" name="idEcrivain" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4" >
+            <label >Nom Ecrivain</label>
+            <input type="text"[(ngModel)]= "newEcrivain.nomEcrivain" name="nomEcrivain" class="form-control"><br>
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label >Honoraires</label>
+            <input type="number" [(ngModel)]= "newEcrivain.honoraires" name="honoraires" class="form-control"><br>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label >Date Début Carrière</label>
+            <input type="date" [(ngModel)]= "newEcrivain.dateDebutCarriere" name="dateDebutCarriere" class="form-control"><br>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Genre</label>
+            <select class="form-control" id="idG" name="idG" [(ngModel)]="newIdG">
+                <option *ngFor="let g of genres" [value]="g.idG" >{{g.nomG}}</option>
+            </select><br>
+        </div>
+
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label class="mb-2">Image</label>
+            <input type="file" (change)="onImageUpload($event)" name="logo" class="form-control">
+        </div>
+        <br>
+
+        <div class="col-sm-16 col-md-16 col-lg-16">
+            <img [src]="imagePath" class="card-img-top img-fluid rounded-start" style="width: 500px; height: 300px" />
+        </div>    
+
+        <div class="mt-2">
+            <button type="submit" (click)="addEcrivain()"class="btn btn-success">Ajouter</button>
+        </div>
+        <!-- <div>
+            <h4>{{msg}}</h4>
+        </div> -->
+    </form>
+</div>
